@@ -1,0 +1,252 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* ===== Profile Header (inside Sidebar) ===== */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffc107;
+}
+
+/* ===== Header (Sidebar) ===== */
+header {
+  width: 25%;
+  min-width: 250px;
+  background: #1f1f1f;
+  color: #eaeaea;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-right: 2px solid #333;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+header p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* ===== Navigation Buttons ===== */
+nav {
+  text-align: left;
+  width: 100%;
+  margin-top: 1rem;
+}
+nav button {
+  background: #333;
+  border: none;
+  color: #f1f1f1;
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+nav button:hover {
+  background-color: #555;
+}
+
+/* ===== Main Content Area ===== */
+main {
+  width: 75%;
+  min-width: 300px;
+  padding: 2rem;
+  overflow-y: auto;
+  height: 100vh;
+}
+.subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 0.25rem;
+}
+/* ===== Sections ===== */
+.section {
+  display: none;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Section-Specific Background + Animations ===== */
+#about.section.active {
+  background-color: #f9f9f9;
+  animation: fadeDown 0.8s ease both;
+}
+#experience.section.active {
+  background-color: #f0f0f0;
+  animation: slideLeft 0.9s ease both;
+}
+#projects.section.active {
+  background-color: #f7f7f7;
+  animation: zoomIn 0.8s ease both;
+}
+#certifications.section.active {
+  background-color: #eeeeee;
+  animation: flipX 0.8s ease both;
+}
+#education.section.active {
+  background-color: #f5f5f5;
+  animation: slideRight 0.8s ease both;
+}
+#skills.section.active {
+  background-color: #fcfcfc;
+  animation: fadeUp 0.8s ease both;
+}
+#contact.section.active {
+  background-color: #f4f4f4;
+  animation: fadeUp 1s ease both;
+}
+#resume.section.active {
+  background-color: #fafafa;
+  animation: zoomIn 0.8s ease both;
+}
+
+/* ===== Typography ===== */
+h2 {
+  color: #ffc107;
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-top: 1.5rem;
+  color: #444;
+}
+p {
+  margin-bottom: 1rem;
+}
+ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Skills Table ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+th {
+  background-color: #eeeeee;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* ===== Footer ===== */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1f1f1f;
+  color: #eaeaea;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #333;
+  z-index: 999;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes flipX {
+  from { opacity: 0; transform: rotateX(-90deg); }
+  to { opacity: 1; transform: rotateX(0); }
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    overflow: auto;
+  }
+  header,
+  main {
+    width: 100%;
+    height: auto;
+  }
+  nav button {
+    text-align: center;
+  }
+  footer {
+    position: relative;
+  }
+}
